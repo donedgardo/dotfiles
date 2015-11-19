@@ -1,0 +1,43 @@
+snippet progress "Meteor progression" b
+<!-- Angular-Material Progress when Saving -->
+<md-progress-circular class="md-accent" md-mode="indeterminate"
+  ng-show="$1">
+</md-progress-circular>
+endsnippet
+snippet comment "comments for html" b
+<!-- $1 -->
+endsnippet
+snippet md-dialog "opens angular-magerial-dialog" b
+<md-dialog aria-label="$1" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1 class="md-highligth-1">$1</h1>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="${2:controlerAs}.closeDialog()">
+          <md-icon md-svg-src="style/images/icons/ic_close_black_24px.svg" 
+            aria-label="Close dialog">
+          </md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+		  $3
+    </md-dialog-content>
+  </form>
+</md-dialog>
+endsnippet
+
+snippet md-button "Creates angular-material button" b
+<md-button class="$1">
+  $2
+</md-button>
+endsnippet
+
+snippet md-input "input container for Material" b
+<md-input-container>
+  <label>$1</label>
+  <input ng-model="$2">
+</md-input-container>
+endsnippet
+

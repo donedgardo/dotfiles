@@ -1,0 +1,115 @@
+snippet ng.routes "makes new routes for angular" b
+angular.module("${1:appName}")
+(function(){
+  "use strict";
+
+  .config(function ($urlRouterProvider, $stateProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+ 
+    $stateProvider
+      .state('$2', {
+        url: '/$2',
+        templateUrl: '$2.ng.html',
+        controller: '$2Ctrl'
+      })
+
+    $urlRouterProvider.otherwise("/");
+  });
+})();
+endsnippet
+
+
+snippet mdToast "md-toast" b
+//Toast animation
+function mdToast(content, position, delayMs){
+  $mdToast.show(
+	  $mdToast.simple()
+		  .content(content)
+			.position(position)
+			.hideDelay(delayMs)
+			);
+}
+endsnippet
+
+snippet factory "Creates Angular Parse model factory" b
+(function(){
+	"use strict";
+
+  angular.module('${1:appname}')
+  .factory('${2:Model}', function($q) {
+
+    var $2 = Parse.Object.extend("$2", {
+      // instance methods 
+    }, {
+      // class methods
+    });
+
+    //${3:propertyName} property
+    Object.defineProperty($2.prototype, "$3",{
+      get:function(){
+        return this.get("${4:propertyNameinDB}");
+      },
+      set:function(value){
+        this.set("$4", value);
+      }
+    });
+
+
+    return $2;
+
+  });
+})();
+endsnippet
+
+snippet prop  "Creates Angular Parse property for model" b
+//${1:propertyName} property
+Object.defineProperty(${2:objName}.prototype, "$1",{
+  get:function(){
+    return this.get("${3:propertyNameinDB}");
+  },
+  set:function(value){
+    this.set("$3", value);
+  }
+});
+endsnippet
+
+snippet controller "Angular controller" b
+(function(){
+  angular.module('${1:appname}')
+  .controller('${2:ctrlName}Ctrl', $2Controller);
+
+	$2Controller.$inject= ['$3'];
+  function $2Controller($3) {
+    self = this;
+
+	  $4
+
+  }
+})();
+endsnippet
+
+snippet service "Angular service" b
+(function(){
+  angular.module('${1:serviceName}Service', [])
+  .factory('$1Service', $1Service);
+
+	$1Service.$inject= ['$2'];
+  function $1Service($2) {
+    $1Service.${3:methodName} = function (){
+		  $4
+		}
+
+	  $5
+
+	return $1Service;
+  }
+})();
+endsnippet
+
+snippet .state "Creates an angular state" b
+.state('${1:name}',{
+  url:"${2:url}",
+  templateUrl: "app/$3",
+  controller: "${4:SiteCtrl} as $5"
+})$6
+endsnippet
